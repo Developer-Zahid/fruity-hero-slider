@@ -1,0 +1,57 @@
+*::after,
+*::before,
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+  background-color: #beceff;
+}
+
+.main {
+  position: relative;
+  display: inline-block;
+  -webkit-mask-image: url("../images/main-mask.png");
+          mask-image: url("../images/main-mask.png");
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+          mask-position: center;
+  -webkit-mask-size: cover;
+          mask-size: cover;
+}
+.main__slider {
+  display: flex;
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  mix-blend-mode: multiply;
+  transform: translate(0);
+  animation: move 20s ease-in-out infinite;
+}
+@keyframes move {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-160%);
+  }
+}
+.main__image {
+  max-width: 100%;
+  display: block;
+}
+.main__image--mask {
+  max-height: 20rem;
+}/*# sourceMappingURL=style.css.map */
