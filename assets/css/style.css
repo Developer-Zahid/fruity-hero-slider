@@ -1,29 +1,57 @@
+@import url("https://fonts.cdnfonts.com/css/clash-display");
 *::after,
 *::before,
 * {
   margin: 0;
   padding: 0;
+  outline: 0;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  font-size: clamp(6px, 1vw, 10px);
 }
 
 html,
 body {
   height: 100%;
-  overflow: hidden;
 }
 
 body {
-  display: grid;
-  place-items: center;
-  padding: 1.5rem;
-  background-color: #beceff;
+  background-color: #B6CD87;
+  font-size: 1rem;
+  font-family: "Clash Display", sans-serif;
 }
 
-.main {
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.fruits__slider .slick-list,
+.fruits__slider .slick-track, .fruits__slider, .background__slide::after, .background__slider .slick-list,
+.background__slider .slick-track, .background__slider {
+  position: absolute;
+  inset: 0;
+}
+
+.background__slide::after, .banner {
+  display: grid;
+  place-items: center;
+}
+
+.banner {
+  position: relative;
+  min-height: calc(var(--vh) * 100);
+  padding: 5rem 2rem;
+}
+
+.bottle__mask {
   position: relative;
   display: inline-block;
-  -webkit-mask-image: url("../images/main-mask.png");
-          mask-image: url("../images/main-mask.png");
+  -webkit-mask-image: url("../images/bottle-mask/bottle.png");
+          mask-image: url("../images/bottle-mask/bottle.png");
   -webkit-mask-repeat: no-repeat;
           mask-repeat: no-repeat;
   -webkit-mask-position: center;
@@ -31,27 +59,39 @@ body {
   -webkit-mask-size: cover;
           mask-size: cover;
 }
-.main__slider {
-  display: flex;
+.bottle__mask__image {
+  max-height: 40rem;
+}
+
+.background__slide {
+  position: relative;
+}
+.background__slide::after {
+  content: attr(data-text);
+  font-size: max(18rem, 20vw);
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.fruits__slider .slick-list,
+.fruits__slider .slick-track {
+  height: 100% !important;
+}
+.fruits__slide {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100% !important;
+}
+@media (min-width: 992px) {
+  .fruits__slide {
+    background-size: cover;
+  }
+}
+
+.label__slider {
   position: absolute;
   inset: 0;
   margin: auto;
   mix-blend-mode: multiply;
-  transform: translate(0);
-  animation: move 20s ease-in-out infinite;
-}
-@keyframes move {
-  0%, 100% {
-    transform: translateX(0);
-  }
-  50% {
-    transform: translateX(-160%);
-  }
-}
-.main__image {
-  max-width: 100%;
-  display: block;
-}
-.main__image--mask {
-  max-height: 20rem;
 }/*# sourceMappingURL=style.css.map */

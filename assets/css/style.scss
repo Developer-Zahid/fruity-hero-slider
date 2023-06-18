@@ -1,60 +1,126 @@
+$clr-slide-1: #B6CD87;
+$clr-slide-2: #FFB2B2;
+$clr-slide-3: #C1BFF2;
+$clr-white: #ffffff;
+$ff-primary: 'Clash Display', sans-serif;
+
+@import url('https://fonts.cdnfonts.com/css/clash-display');
+
 *::after,
 *::before,
 *
 {
     margin: 0;
     padding: 0;
+    outline: 0;
     box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html{
+    font-size: clamp(6px, 1vw, 10px);
 }
 
 html,
 body
 {
     height: 100%;
-    overflow: hidden;
 }
 
 body{
-    display: grid;
-    place-items: center;
-    padding: 1.5rem;
-    background-color: #beceff;
+    background-color: $clr-slide-1;
+    font-size: 1rem;
+    font-family: $ff-primary;
 }
 
-.main{
+img{
+    display: block;
+    max-width: 100%;
+}
+
+%full-view{
+    position: absolute;
+    inset: 0;
+}
+
+%center-content{
+    display: grid;
+    place-items: center;
+}
+
+.banner{
+    position: relative;
+    min-height: calc(var(--vh) * 100);
+    padding: 5rem 2rem;
+    @extend %center-content;
+}
+
+.bottle__mask{
     position: relative;
     display: inline-block;
-    mask-image: url('../images/main-mask.png');
+    mask-image: url('../images/bottle-mask/bottle.png');
     mask-repeat: no-repeat;
     mask-position: center;
     mask-size: cover;
 
+    &__image{
+        max-height: 40rem;
+    }
+}
+
+.background{
     &__slider{
-        display: flex;
+        @extend %full-view;
+
+        .slick-list,
+        .slick-track
+        {
+            @extend %full-view;
+        }
+    }
+
+    &__slide{
+        position: relative;
+
+        &::after{
+            content: attr(data-text);
+            font-size: max(18rem, 20vw);
+            font-weight: 600;
+            color: $clr-white;
+            @extend %full-view;
+            @extend %center-content;
+        }
+    }
+}
+
+.fruits{
+    &__slider{
+        @extend %full-view;
+
+        .slick-list,
+        .slick-track
+        {
+            @extend %full-view;
+            height: 100% !important;
+        }
+    }
+
+    &__slide{
+        background-size: contain;
+        @media (min-width: 992px) {
+            background-size: cover;
+        }
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 100% !important;
+    }
+}
+
+.label{
+    &__slider{
         position: absolute;
         inset: 0;
         margin: auto;
         mix-blend-mode: multiply;
-        transform: translate(0);
-        animation: move 20s ease-in-out infinite;
-    
-        @keyframes move {
-            0%,100%{
-                transform: translateX(0);
-            }
-            50%{
-                transform: translateX(-160%);
-            }
-        }
     }
-    
-    &__image{
-        max-width: 100%;
-        display: block;
-
-        &--mask{
-            max-height: 20rem;
-        }
-    }
-
 }

@@ -4,16 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fruity Hero Section Slider</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
-    <div class="main">
-        <img class="main__image main__image--mask" src="./assets/images/main-mask.png" alt="main-can">
-        <div class="main__slider">
-            <img class="main__image main__image--can" src="./assets/images/can-label-1.png" alt="main-can" loading="lazy" draggable="false">
-            <img class="main__image main__image--can" src="./assets/images/can-label-2.png" alt="main-can" loading="lazy" draggable="false">
-            <img class="main__image main__image--can" src="./assets/images/can-label-3.png" alt="main-can" loading="lazy" draggable="false">
+    <header class="banner">
+        <div class="background__slider">
+            <div class="background__slide" style="background-color: #B6CD87;" data-text="Pear"></div>
+            <div class="background__slide" style="background-color: #FFB2B2;" data-text="Apple"></div>
+            <div class="background__slide" style="background-color: #C1BFF2;" data-text="Exotic"></div>
         </div>
-    </div>
+        <div class="fruits__slider">
+            <div class="fruits__slide" style="background-image: url('./assets/images/fruits/fruit-1.png');"></div>
+            <div class="fruits__slide" style="background-image: url('./assets/images/fruits/fruit-2.png');"></div>
+            <div class="fruits__slide" style="background-image: url('./assets/images/fruits/fruit-3.png');"></div>
+        </div>
+        <div class="bottle__mask">
+            <img class="bottle__mask__image" src="./assets/images/bottle-mask/bottle.png" alt="empty bottle mask" draggable="false">
+            <div class="label__slider">
+                <div class="label__slide">
+                    <img class="label__slide__image" src="./assets/images/labels/label-1.png" alt="can bottle label" loading="lazy" draggable="false">
+                </div>
+                <div class="label__slide">
+                    <img class="label__slide__image" src="./assets/images/labels/label-2.png" alt="can bottle label" loading="lazy" draggable="false">
+                </div>
+                <div class="label__slide">
+                    <img class="label__slide__image" src="./assets/images/labels/label-3.png" alt="can bottle label" loading="lazy" draggable="false">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./assets/js/script.js"></script>
 </body>
 </html>
