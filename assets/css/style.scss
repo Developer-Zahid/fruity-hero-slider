@@ -1,6 +1,4 @@
-$clr-slide-1: #B6CD87;
-$clr-slide-2: #FFB2B2;
-$clr-slide-3: #C1BFF2;
+$clr-bg: #B6CD87;
 $clr-white: #ffffff;
 $ff-primary: 'Clash Display', sans-serif;
 
@@ -28,19 +26,16 @@ body
 }
 
 body{
-    background-color: $clr-slide-1;
     font-size: 1rem;
     font-family: $ff-primary;
+    background-color: $clr-bg;
 }
 
 img{
     display: block;
     max-width: 100%;
-}
-
-%full-view{
-    position: absolute;
-    inset: 0;
+    user-select: none;
+    pointer-events: none;
 }
 
 %center-content{
@@ -56,6 +51,11 @@ img{
 }
 
 .bottle__mask{
+    &-wrapper{
+        position: relative;
+        display: inline-block;
+        isolation: isolate;
+    }
     position: relative;
     display: inline-block;
     mask-image: url('../images/bottle-mask/bottle.png');
@@ -66,6 +66,24 @@ img{
     &__image{
         max-height: 40rem;
     }
+
+    &__shadow{
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        transform: translateY(30%) translateX(70%);
+        z-index: -1;
+        max-width: 35vw;
+
+        @media (max-width: 991.98px) {
+            display: none;
+        }
+    }
+}
+
+%full-view{
+    position: absolute;
+    inset: 0;
 }
 
 .background{
@@ -118,8 +136,7 @@ img{
 
 .label{
     &__slider{
-        position: absolute;
-        inset: 0;
+        @extend %full-view;
         margin: auto;
         mix-blend-mode: multiply;
     }

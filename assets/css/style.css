@@ -19,21 +19,18 @@ body {
 }
 
 body {
-  background-color: #B6CD87;
   font-size: 1rem;
   font-family: "Clash Display", sans-serif;
+  background-color: #B6CD87;
 }
 
 img {
   display: block;
   max-width: 100%;
-}
-
-.fruits__slider .slick-list,
-.fruits__slider .slick-track, .fruits__slider, .background__slide::after, .background__slider .slick-list,
-.background__slider .slick-track, .background__slider {
-  position: absolute;
-  inset: 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  pointer-events: none;
 }
 
 .background__slide::after, .banner {
@@ -59,8 +56,33 @@ img {
   -webkit-mask-size: cover;
           mask-size: cover;
 }
+.bottle__mask-wrapper {
+  position: relative;
+  display: inline-block;
+  isolation: isolate;
+}
 .bottle__mask__image {
   max-height: 40rem;
+}
+.bottle__mask__shadow {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translateY(30%) translateX(70%);
+  z-index: -1;
+  max-width: 35vw;
+}
+@media (max-width: 991.98px) {
+  .bottle__mask__shadow {
+    display: none;
+  }
+}
+
+.label__slider, .fruits__slider .slick-list,
+.fruits__slider .slick-track, .fruits__slider, .background__slide::after, .background__slider .slick-list,
+.background__slider .slick-track, .background__slider {
+  position: absolute;
+  inset: 0;
 }
 
 .background__slide {
@@ -90,8 +112,6 @@ img {
 }
 
 .label__slider {
-  position: absolute;
-  inset: 0;
   margin: auto;
   mix-blend-mode: multiply;
 }/*# sourceMappingURL=style.css.map */
